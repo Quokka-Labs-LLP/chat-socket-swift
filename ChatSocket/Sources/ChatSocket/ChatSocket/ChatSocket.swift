@@ -32,7 +32,7 @@ public class ChatSocket {
     //MARK: - Singleton
     public static let sharedInstance = ChatSocket()
     
-    public init() {
+    private init() {
         
     }
     
