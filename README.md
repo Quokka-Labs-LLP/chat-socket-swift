@@ -1,34 +1,33 @@
-# ChatSocket
+# ChatSocket #
 
-SDK for implementing Chat in your iOS app using SocketsIO. Also contains a customizable Chat interface.
+Minimal chat module based on SocketIO and SwiftUI.
 
-## Example
+### What is this repository for? ###
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+* Quick summary
+There are two classes in this package, ChatSocket() and InboxView(), 
 
-## How to use
-* **Step-1 Install Package:** Add Package using package manager in xcode
+ChatSocket() is a wrapper class for SocketIO, It contains predefined methods to send and receive messages from socket.
+(Note: Backend server should also be based on SocketIO).
 
-* **Step-2 Import Library:** ChatSocket in View or ViewController & add its required methods, now use shared instance of ChatSocket() class and assign properties (i.e : socket URL, EventNames) before calling required methods.
+InboxView() is a SwiftUI View which is fully customizable according to developers requirnments. Out of the box it comes pre-customized and can be used as plug and play also.   
 
-## Requirements
+* Version
+1.0.0
 
-* iOS 14+
-* Xcode 13+
+### How do I get set up? ###
 
-## Installation
+* Summary of set up
+1) Add the package to your codebase.
+2) Import the package where required using 'Import ChatSocket'
 
-Wil be available via swift package manager (SPM).
+* Configuration
+* Dependencies
+* Database configuration
+* How to run tests
+* Deployment instructions
 
-## Author
+### Who do I talk to? ###
 
-Manish Solanki - QuokkaLabs
-```ruby
-work.manni.sh@gmail.com
-```
-
-## License
-
-ChatSocket is available under the MIT license. See the LICENSE file for more info.
-
-
+* Repo owner or admin
+* Other community or team contact
