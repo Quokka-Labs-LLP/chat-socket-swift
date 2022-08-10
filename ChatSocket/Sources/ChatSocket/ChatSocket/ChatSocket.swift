@@ -59,8 +59,14 @@ public class ChatSocket {
         if let socket = socket {
             socket.on(clientEvent: .connect) { response, ack in
                 print("Connected successfully")
+                // start listening
+                print("Started Listening")
+                socket.on(self.messageReceiveEvent) { data, ack in
+                    guard let response = data[0] as? String else {return}
+                    print("Server response : \(response)")
+                    
+                }
             }
-            
             socket.connect()
         }
     }
@@ -77,19 +83,10 @@ public class ChatSocket {
     }
     
     // send message
-    public func sendMessage(_ message: String, _ completionHandler : @escaping ((String) -> Void)) {
+    public func sendMessage(_ message: String) {
         if let socket = socket {
-            let payloadMessage : SocketData = ["message" : message]
-            // start listening
-            socket.on(messageReceiveEvent) { data, ack in
-                guard let response = data[0] as? [String: String] else {return}
-                guard let message = response["msg"] else {return}
-                
-                print("[INFO]: server response:", message)
-                completionHandler(message)
-            }
-            
-            socket.emit(messageSendEvent, payloadMessage)
+            //let payloadMessage : SocketData = ["message" : message]
+            socket.emit(messageSendEvent, message)
         }
     }
     

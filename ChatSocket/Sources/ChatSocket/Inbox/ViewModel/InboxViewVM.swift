@@ -23,8 +23,12 @@ class InboxViewVM : ObservableObject {
     }
     
     var chatSocket : ChatSocket = {
+        /// URL for local host ws://localhost:3000
         let chatSocket = ChatSocket.sharedInstance
-        chatSocket.urlString = "ws://localhost:3000"
+        chatSocket.urlString = "http://3.143.67.28:3000"
+        //chatSocket.urlString = "ws://localhost:3000"
+        chatSocket.messageSendEvent = "newMessage"
+        chatSocket.messageReceiveEvent = "newMessage"
         return chatSocket
     }()
     
@@ -69,15 +73,16 @@ class InboxViewVM : ObservableObject {
     
     //MARK: - Public methods
     func connect() {
-        chatSocket.connect()
+        chatSocket.connect({ responseMessage in
+            
+            self.chatMessages.append(ChatDataModel(message: responseMessage, userName: "Jarvis", imageUrl: "", time: self.getCurrentTime(), isSender: false))
+        })
     }
     
     func sendMessage(text: String) {
         chatMessages.append(ChatDataModel(message: text, userName: "Manni", imageUrl: "", time: getCurrentTime(), isSender: true))
         
-        chatSocket.sendMessage(text, { responseMessage in
-            self.chatMessages.append(ChatDataModel(message: responseMessage, userName: "Jarvis", imageUrl: "", time: self.getCurrentTime(), isSender: false))
-        })
+        chatSocket.sendMessage(text)
         
     }
     
