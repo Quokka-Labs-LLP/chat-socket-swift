@@ -48,7 +48,18 @@ struct Constants {
         static let cancelText = "Cancel"
         static let connectToServer = "Connect to server?"
         
+        //Errors and Logging
+        static let connectionRequest = "Connection Request"
+        static let disconnectionRequest = "Disconnection Request"
+        static let connectionSuccessfull = "Socket Connection Successful"
+        static let disconnectionSuccessfull = "Disconnected sucessfully"
+        static let startedListeningForEvent = "Started listening for event"
+        static let serverResponse = "Server Response"
+        static let sendingMessage = "Sending message"
+        
         //TODO: - Remove Later, Only for demonstration
-        static let inboxTitleString = "Jarvis"
+        static let inboxTitleString = "jarvis"
+        
+        
     }
 }

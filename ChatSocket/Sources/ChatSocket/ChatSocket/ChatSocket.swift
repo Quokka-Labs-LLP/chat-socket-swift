@@ -22,8 +22,8 @@ public class ChatSocket {
     public var isLoggingEnabled : Bool = false
     
     //Events
-    public var messageSendEvent : String = "NodeJS Server Port"
-    public var messageReceiveEvent : String = "iOS Client Port"
+    public var messageSendEvent : String = ""
+    public var messageReceiveEvent : String = ""
     
     //private properties
     private var socketManager : SocketManager?
@@ -55,16 +55,15 @@ public class ChatSocket {
     
     //MARK: - Public Methods
     // Connect
-    public func connect() {
+    public func connect(_ completionHandler : @escaping ((String) -> Void)) {
         if let socket = socket {
             socket.on(clientEvent: .connect) { response, ack in
-                print("Connected successfully")
-                // start listening
-                print("Started Listening")
+                Log.info(type: .notice, title: Constants.StringConstants.connectionRequest, message: Constants.StringConstants.connectionSuccessfull)
+                Log.info(type: .info,title: Constants.StringConstants.startedListeningForEvent, message: self.messageReceiveEvent)
                 socket.on(self.messageReceiveEvent) { data, ack in
                     guard let response = data[0] as? String else {return}
-                    print("Server response : \(response)")
-                    
+                    Log.info(type: .info, title: Constants.StringConstants.serverResponse, message: response)
+                    completionHandler(response)
                 }
             }
             socket.connect()
@@ -75,9 +74,8 @@ public class ChatSocket {
     public func disconnect() {
         if let socket = socket {
             socket.on(clientEvent: .disconnect) { response, ack in
-                print("Disconnected successfully")
+                Log.info(type: .notice, title: Constants.StringConstants.disconnectionRequest, message: Constants.StringConstants.disconnectionSuccessfull)
             }
-            
             socket.disconnect()
         }
     }
@@ -85,7 +83,7 @@ public class ChatSocket {
     // send message
     public func sendMessage(_ message: String) {
         if let socket = socket {
-            //let payloadMessage : SocketData = ["message" : message]
+            Log.info(type: .info, title: Constants.StringConstants.sendingMessage, message: message)
             socket.emit(messageSendEvent, message)
         }
     }

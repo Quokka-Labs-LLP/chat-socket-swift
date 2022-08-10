@@ -75,7 +75,7 @@ class InboxViewVM : ObservableObject {
     func connect() {
         chatSocket.connect({ responseMessage in
             
-            self.chatMessages.append(ChatDataModel(message: responseMessage, userName: "Jarvis", imageUrl: "", time: self.getCurrentTime(), isSender: false))
+            self.chatMessages.append(ChatDataModel(message: responseMessage, userName: Constants.StringConstants.inboxTitleString, imageUrl: "", time: self.getCurrentTime(), isSender: false))
         })
     }
     
@@ -127,41 +127,6 @@ class InboxViewVM : ObservableObject {
             if let buttonColor = customization.buttonColor { self.buttonColor = buttonColor }
             if let mainBackground = customization.mainBackground { self.mainBackground = mainBackground }
         }
-        
-        // want to keep the properties individual because we will need to unwrap the values to implement them in View.
-        //        DispatchQueue.main.async {
-        //            newCustomization.titleName = customization.titleName ?? Constants.StringConstants.inboxTitleString
-        //            newCustomization.customFont   = customization.customFont ?? Constants.UIConstants.defaultFont(size: .title)
-        //            newCustomization.titleFontColor  = customization.titleFontColor ?? Constants.UIConstants.charcoalBlack
-        //            newCustomization.titleBarBackgroundColor  = customization.titleBarBackgroundColor ?? Constants.UIConstants.OpalColor
-        //
-        //            // CHAT CELL
-        //            // - Sender
-        //            newCustomization.senderShouldShowHeading = customization.senderShouldShowHeading ?? false
-        //            newCustomization.senderCellMessageFont = customization.senderCellMessageFont ?? Constants.UIConstants.defaultFont(size: .body)
-        //            newCustomization.senderCellHeadingFont = customization.senderCellHeadingFont ?? Constants.UIConstants.defaultFont(size: .body)
-        //            newCustomization.senderCellTimeFont = customization.senderCellTimeFont ?? Constants.UIConstants.defaultFont(size: .callout)
-        //            newCustomization.senderCellFontColor = customization.senderCellFontColor ?? Constants.UIConstants.charcoalBlack
-        //            newCustomization.senderCellBackgroundColor = customization.senderCellBackgroundColor ?? Constants.UIConstants.DesertSandColor
-        //
-        //            // - Receiver
-        //            newCustomization.receiverCellMessageFont  = customization.receiverCellMessageFont ?? Constants.UIConstants.defaultFont(size: .body)
-        //            newCustomization.receiverHeadingFont  = customization.receiverHeadingFont ?? Constants.UIConstants.defaultFont(size: .subHeading)
-        //            newCustomization.receiverCellTimeFont  = customization.receiverCellTimeFont ?? Constants.UIConstants.defaultFont(size: .callout)
-        //            newCustomization.receiverFontCellColor  = customization.receiverFontCellColor ?? Constants.UIConstants.charcoalBlack
-        //            newCustomization.receiverCellBackgroundColor  = customization.receiverCellBackgroundColor ?? Constants.UIConstants.DesertSandColor
-        //
-        //            //CHAT TEXTFIELD VIEW
-        //            newCustomization.textFieldFont  = customization.textFieldFont ?? Constants.UIConstants.defaultFont(size: .body)
-        //            newCustomization.textFieldPlaceholderText  = customization.textFieldPlaceholderText ?? Constants.StringConstants.defaultPlaceholder
-        //            newCustomization.textFieldBackgroundColor  = customization.textFieldBackgroundColor ?? Constants.UIConstants.AlabasterColor
-        //            newCustomization.textfieldAccentColor  = customization.textfieldAccentColor ?? Constants.UIConstants.DesertSandColor
-        //            newCustomization.textFieldFontColor  = customization.textFieldFontColor ?? Constants.UIConstants.charcoalBlack
-        //            newCustomization.buttonColor  = customization.buttonColor ?? Constants.UIConstants.charcoalBlack
-        //            newCustomization.mainBackground  = customization.mainBackground ?? Constants.UIConstants.OpalColor
-        //
-        //            self.inboxCustomization = newCustomization
-        //        }
     }
         
         
