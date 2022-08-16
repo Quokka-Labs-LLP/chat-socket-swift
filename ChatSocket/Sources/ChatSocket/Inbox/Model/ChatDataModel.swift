@@ -15,6 +15,6 @@ public struct ChatDataModel : Codable, Identifiable {
     public let message     : String?
     public let userName    : String?
     public let imageUrl    : String?
-    public let time        : String?
+    public let timeStamp        : String?
     public let isSender    : Bool?
 }

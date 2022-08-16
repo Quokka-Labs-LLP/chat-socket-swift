@@ -41,7 +41,7 @@ class InboxViewVM : ObservableObject {
     var titleName               : String    = Constants.StringConstants.inboxTitleString
     var customFont              : Font      = Constants.UIConstants.defaultFont(size: .title)
     var titleFontColor          : Color     = Constants.UIConstants.charcoalBlack
-    var titleBarBackgroundColor  : Color     = Constants.UIConstants.OpalColor
+    var titleBarBackgroundColor  : Color     = Constants.UIConstants.opalColor
     
     // CHAT CELL
     // - Sender
@@ -50,23 +50,23 @@ class InboxViewVM : ObservableObject {
     var senderCellHeadingFont       : Font = Constants.UIConstants.defaultFont(size: .body)
     var senderCellTimeFont          : Font = Constants.UIConstants.defaultFont(size: .callout)
     var senderCellFontColor         : Color = Constants.UIConstants.charcoalBlack
-    var senderCellBackgroundColor   : Color = Constants.UIConstants.DesertSandColor
+    var senderCellBackgroundColor   : Color = Constants.UIConstants.desertSandColor
     
     // - Receiver
     var receiverCellMessageFont     : Font = Constants.UIConstants.defaultFont(size: .body)
     var receiverHeadingFont         : Font = Constants.UIConstants.defaultFont(size: .subHeading)
     var receiverCellTimeFont        : Font = Constants.UIConstants.defaultFont(size: .callout)
     var receiverFontCellColor       : Color = Constants.UIConstants.charcoalBlack
-    var receiverCellBackgroundColor : Color = Constants.UIConstants.DesertSandColor
+    var receiverCellBackgroundColor : Color = Constants.UIConstants.desertSandColor
     
     //CHAT TEXTFIELD VIEW
     var textFieldFont : Font = Constants.UIConstants.defaultFont(size: .body)
     var textFieldPlaceholderText : String = Constants.StringConstants.defaultPlaceholder
-    var textFieldBackgroundColor : Color = Constants.UIConstants.AlabasterColor
-    var textfieldAccentColor : Color = Constants.UIConstants.DesertSandColor
+    var textFieldBackgroundColor : Color = Constants.UIConstants.alabasterColor
+    var textfieldAccentColor : Color = Constants.UIConstants.desertSandColor
     var textFieldFontColor : Color = Constants.UIConstants.charcoalBlack
     var buttonColor : Color = Constants.UIConstants.charcoalBlack
-    var mainBackground : Color = Constants.UIConstants.OpalColor
+    var mainBackground : Color = Constants.UIConstants.opalColor
     
     //Alert
     @Published var shouldPresentActionSheet : Bool = false
@@ -75,12 +75,12 @@ class InboxViewVM : ObservableObject {
     func connect() {
         chatSocket.connect({ responseMessage in
             
-            self.chatMessages.append(ChatDataModel(message: responseMessage, userName: Constants.StringConstants.inboxTitleString, imageUrl: "", time: self.getCurrentTime(), isSender: false))
+            self.chatMessages.append(ChatDataModel(message: responseMessage, userName: Constants.StringConstants.inboxTitleString, imageUrl: "", timeStamp: self.getCurrentTime(), isSender: false))
         })
     }
     
     func sendMessage(text: String) {
-        chatMessages.append(ChatDataModel(message: text, userName: "Manni", imageUrl: "", time: getCurrentTime(), isSender: true))
+        chatMessages.append(ChatDataModel(message: text, userName: "Manni", imageUrl: "", timeStamp: getCurrentTime(), isSender: true))
         
         chatSocket.sendMessage(text)
         
@@ -94,6 +94,22 @@ class InboxViewVM : ObservableObject {
         
         return date
     }
+    
+    //---- Timestamp
+    private func getCurrentTimeStamp() -> Int {
+        let timeStamp = Date().timeIntervalSince1970
+        return Int(timeStamp) // will always be 10 Digits
+    }
+    
+    private func resolveTimeStamp(_ timeStamp: Int) -> String {
+        let timeInterval = TimeInterval(timeStamp)
+        let rawDateinGMT = NSDate(timeIntervalSince1970: timeInterval)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        let formattedDate = dateFormatter.string(from: rawDateinGMT as Date)
+        return formattedDate
+    }
+    //---- Timestamp
     
     private func setupCustomizations(_ customization: InboxViewCustomizationModel) {
         DispatchQueue.main.async {

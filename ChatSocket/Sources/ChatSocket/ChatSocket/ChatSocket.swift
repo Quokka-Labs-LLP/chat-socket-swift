@@ -19,7 +19,11 @@ public class ChatSocket {
             }
         }
     }
-    public var isLoggingEnabled : Bool = false
+    public var isLoggingEnabled : Bool = false {
+        didSet {
+            Log.toggleLogging(isLoggingEnabled)
+        }
+    }
     
     //Events
     public var messageSendEvent : String = ""

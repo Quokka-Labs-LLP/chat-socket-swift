@@ -54,7 +54,7 @@ public struct InboxView: View {
                 inboxViewVM.sendMessage(text: text)
             })
         }
-        .background(Constants.UIConstants.AlabasterColor)
+        .background(Constants.UIConstants.alabasterColor)
         .navigationBarHidden(true)
         
         

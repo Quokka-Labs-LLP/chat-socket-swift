@@ -18,7 +18,7 @@ class Log {
     }
     
     // change this value if you want to disable logging throughout the app.
-    private static let debuggingEnabled : Bool = true
+    private static var debuggingEnabled : Bool = true
     
     class func info(type: LogType, title: String? = nil, message: String) {
         
@@ -29,5 +29,9 @@ class Log {
                 print("\(type.rawValue) \(message).")
             }
         }
+    }
+    
+    class func toggleLogging(_ isEnabled: Bool) {
+        self.debuggingEnabled = isEnabled
     }
 }

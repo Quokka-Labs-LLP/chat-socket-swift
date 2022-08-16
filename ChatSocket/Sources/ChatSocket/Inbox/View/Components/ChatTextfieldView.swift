@@ -60,7 +60,7 @@ struct ChatTextfieldView : View {
 
 struct ChatTextfieldView_Previews : PreviewProvider {
     static var previews: some View {
-        ChatTextfieldView(textFieldFont: Constants.UIConstants.defaultFont(size: .body), textFieldPlaceholderText: Constants.StringConstants.defaultPlaceholder, textFieldBackgroundColor: Constants.UIConstants.AlabasterColor, textfieldAccentColor: Constants.UIConstants.DesertSandColor, textFieldFontColor: Constants.UIConstants.charcoalBlack, buttonColor: Constants.UIConstants.charcoalBlack, mainBackground: Constants.UIConstants.OpalColor, chatButtonAction: { _ in
+        ChatTextfieldView(textFieldFont: Constants.UIConstants.defaultFont(size: .body), textFieldPlaceholderText: Constants.StringConstants.defaultPlaceholder, textFieldBackgroundColor: Constants.UIConstants.alabasterColor, textfieldAccentColor: Constants.UIConstants.desertSandColor, textFieldFontColor: Constants.UIConstants.charcoalBlack, buttonColor: Constants.UIConstants.charcoalBlack, mainBackground: Constants.UIConstants.opalColor, chatButtonAction: { _ in
             // send tapped
         })
             .previewLayout(.sizeThatFits)

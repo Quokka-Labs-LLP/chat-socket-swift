@@ -20,6 +20,7 @@ struct TitleView : View {
     //Closures
     var menuAction : (() -> ())? = nil
     var backAction : (() -> ())? = nil
+    var imageAction : (() -> ())? = nil
     
     //Private
     let imageName : String = "line.3.horizontal"
@@ -43,10 +44,17 @@ struct TitleView : View {
                 })
                 
                 //Userimage
-                Image(systemName: personImage)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 44, height: 44, alignment: .center)
+                Button(action: {
+                    if let imageAction = imageAction {
+                        imageAction()
+                    }
+                }, label: {
+                    Image(systemName: personImage)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 44, height: 44, alignment: .center)
+                        .foregroundColor(Constants.UIConstants.charcoalBlack)
+                })
                 
                 //Title
                 Text(title)
@@ -77,7 +85,7 @@ struct TitleView : View {
 
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
-        TitleView(title: Constants.StringConstants.inboxTitleString, titleFont: Constants.UIConstants.defaultFont(size: .title), titleFontColor: Constants.UIConstants.charcoalBlack, titleBarBackroundColor: Constants.UIConstants.OpalColor)
+        TitleView(title: Constants.StringConstants.inboxTitleString, titleFont: Constants.UIConstants.defaultFont(size: .title), titleFontColor: Constants.UIConstants.charcoalBlack, titleBarBackroundColor: Constants.UIConstants.opalColor)
             .previewLayout(.sizeThatFits)
     }
 }

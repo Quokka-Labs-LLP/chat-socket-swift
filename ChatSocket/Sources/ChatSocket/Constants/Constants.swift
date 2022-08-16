@@ -34,10 +34,10 @@ struct Constants {
         
         //Colors
         static let charcoalBlack : Color = Color(.sRGB, red: 33.0 / 255.0, green: 33.0 / 255.0, blue: 33.0 / 255.0, opacity: 1.0)
-        static let OpalColor : Color = Color(.sRGB, red: 174.0 / 255.0, green: 195.0 / 255.0, blue: 193.0 / 255.0, opacity: 1.0)
-        static let DesertSandColor : Color = Color(.sRGB, red: 237.0 / 255.0, green: 212.0 / 255.0, blue: 181.0 / 255.0, opacity: 1.0)
-        static let AlabasterColor : Color = Color(.sRGB, red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 233.0 / 255.0, opacity: 1.0)
-        static let PastelGrayColor : Color = Color(.sRGB, red: 209.0 / 255.0, green: 205.0 / 255.0, blue: 199.0 / 255.0, opacity: 1.0)
+        static let opalColor : Color = Color(.sRGB, red: 174.0 / 255.0, green: 195.0 / 255.0, blue: 193.0 / 255.0, opacity: 1.0)
+        static let desertSandColor : Color = Color(.sRGB, red: 237.0 / 255.0, green: 212.0 / 255.0, blue: 181.0 / 255.0, opacity: 1.0)
+        static let alabasterColor : Color = Color(.sRGB, red: 242.0 / 255.0, green: 242.0 / 255.0, blue: 233.0 / 255.0, opacity: 1.0)
+        static let pastelGrayColor : Color = Color(.sRGB, red: 209.0 / 255.0, green: 205.0 / 255.0, blue: 199.0 / 255.0, opacity: 1.0)
     }
     
     //MARK: - String

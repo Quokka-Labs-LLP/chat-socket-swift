@@ -36,7 +36,7 @@ struct SenderChatCell: View {
                 }
                 
                 // message body
-                if let message = chatData.message, let time = chatData.time {
+                if let message = chatData.message, let time = chatData.timeStamp {
                     Text(message)
                         .foregroundColor(senderCellFontColor)
                         .font(senderCellMessageFont)
@@ -61,7 +61,7 @@ struct SenderChatCell: View {
 struct ChatCell_Previews: PreviewProvider {
     static var previews: some View {
         
-        SenderChatCell(senderShouldShowHeading: false, senderCellMessageFont: Constants.UIConstants.defaultFont(size: .body), senderCellHeadingFont: Constants.UIConstants.defaultFont(size: .subHeading), senderCellTimeFont: Constants.UIConstants.defaultFont(size: .callout), senderCellFontColor: Constants.UIConstants.charcoalBlack, senderCellBackgroundColor: Constants.UIConstants.DesertSandColor, chatData: ChatDataModel(message: "Hello World", userName: "Manni", imageUrl: "", time: "10:00 AM", isSender: true))
+        SenderChatCell(senderShouldShowHeading: false, senderCellMessageFont: Constants.UIConstants.defaultFont(size: .body), senderCellHeadingFont: Constants.UIConstants.defaultFont(size: .subHeading), senderCellTimeFont: Constants.UIConstants.defaultFont(size: .callout), senderCellFontColor: Constants.UIConstants.charcoalBlack, senderCellBackgroundColor: Constants.UIConstants.desertSandColor, chatData: ChatDataModel(message: "Hello World", userName: "Manni", imageUrl: "", timeStamp: "10:00 AM", isSender: true))
             .previewLayout(.sizeThatFits)
     }
 }
