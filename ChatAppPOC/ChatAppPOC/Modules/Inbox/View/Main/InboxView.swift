@@ -29,7 +29,7 @@ struct InboxView: View {
                 mode.projectedValue.wrappedValue.dismiss()
             }, imageAction: {
 
-                /**** Need to Decide */
+                /* Need to Decide */
                 // - Can open image previewer.
                 // - Can give callback to parent view as well.
 
