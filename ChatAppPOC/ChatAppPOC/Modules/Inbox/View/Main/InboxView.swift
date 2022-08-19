@@ -7,45 +7,40 @@
 
 import SwiftUI
 
-protocol InboxViewDelegate {
-    func menuButtonTapped()
-}
-
 struct InboxView: View {
-    //MARK: - properties
-    @ObservedObject var inboxViewVM = InboxViewVM()
+    // MARK: - properties
+    @ObservedObject var inboxViewVM: InboxViewVM
     @Environment(\.presentationMode) var mode : Binding<PresentationMode>
-    //var delegate : InboxViewDelegate?
-    
-    
-    //MARK: - Init
+    // var delegate : InboxViewDelegate?
+
+    // MARK: - Init
     // get required customizations from user and store them in ViewModel.
     init(customization : InboxViewCustomizationModel? = nil) {
-        inboxViewVM.inboxCustomization = customization
+        inboxViewVM = InboxViewVM(inboxCustomization: customization)
     }
-    
-    //MARK: - Body
+
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0 ) {
-            //Header
+            // Header
             TitleView(title: inboxViewVM.titleName, titleFont: inboxViewVM.customFont, titleFontColor: inboxViewVM.titleFontColor, titleBarBackroundColor: inboxViewVM.titleBarBackgroundColor, menuAction: {
                 inboxViewVM.shouldPresentActionSheet = true
             }, backAction: {
                 mode.projectedValue.wrappedValue.dismiss()
             }, imageAction: {
-                
+
                 /**** Need to Decide */
                 // - Can open image previewer.
                 // - Can give callback to parent view as well.
-                
+
             }).confirmationDialog(Constants.StringConstants.chatMenuTitle, isPresented: $inboxViewVM.shouldPresentActionSheet, actions: {
                 Button(Constants.StringConstants.connectToServer, role: .destructive, action: {
                     inboxViewVM.connect()
                 })
                 Button(Constants.StringConstants.cancelText, role: .cancel, action: {})
             })
-            
-            //message listing
+
+            // message listing
             ScrollView(content: {
                 ScrollViewReader(content: { scrollView in
                     VStack {
@@ -53,14 +48,33 @@ struct InboxView: View {
                         ForEach(inboxViewVM.chatMessages) { chatMessage in
                             if let isSender = chatMessage.isSender, isSender {
                                 if let isMultimediaCell = chatMessage.isMultimediaCell, isMultimediaCell {
-                                    SenderMultimediaChatCell(senderShouldShowHeading: inboxViewVM.senderShouldShowHeading, senderCellMessageFont: inboxViewVM.senderCellMessageFont, senderCellHeadingFont: inboxViewVM.senderCellHeadingFont, senderCellTimeFont: inboxViewVM.senderCellTimeFont, senderCellFontColor: inboxViewVM.senderCellFontColor, senderCellBackgroundColor: inboxViewVM.senderCellBackgroundColor, chatData: chatMessage).id(chatMessage.id)
+                                    SenderMultimediaChatCell(
+                                        senderShouldShowHeading: inboxViewVM.senderShouldShowHeading,
+                                        senderCellMessageFont: inboxViewVM.senderCellMessageFont,
+                                        senderCellHeadingFont: inboxViewVM.senderCellHeadingFont,
+                                        senderCellTimeFont: inboxViewVM.senderCellTimeFont,
+                                        senderCellFontColor: inboxViewVM.senderCellFontColor,
+                                        senderCellBackgroundColor: inboxViewVM.senderCellBackgroundColor,
+                                        chatData: chatMessage).id(chatMessage.id)
                                 } else {
-                                    SenderChatCell(senderShouldShowHeading: inboxViewVM.senderShouldShowHeading, senderCellMessageFont: inboxViewVM.senderCellMessageFont, senderCellHeadingFont: inboxViewVM.senderCellHeadingFont, senderCellTimeFont: inboxViewVM.senderCellTimeFont, senderCellFontColor: inboxViewVM.senderCellFontColor, senderCellBackgroundColor: inboxViewVM.senderCellBackgroundColor, chatData: chatMessage).id(chatMessage.id)
+                                    SenderChatCell(
+                                        senderShouldShowHeading: inboxViewVM.senderShouldShowHeading,
+                                        senderCellMessageFont: inboxViewVM.senderCellMessageFont,
+                                        senderCellHeadingFont: inboxViewVM.senderCellHeadingFont,
+                                        senderCellTimeFont: inboxViewVM.senderCellTimeFont,
+                                        senderCellFontColor: inboxViewVM.senderCellFontColor,
+                                        senderCellBackgroundColor: inboxViewVM.senderCellBackgroundColor,
+                                        chatData: chatMessage).id(chatMessage.id)
                                 }
-                                
-                                
+
                             } else {
-                                ReceiverChatCell(receiverCellMessageFont: inboxViewVM.receiverCellMessageFont, receiverCellHeadingFont: inboxViewVM.receiverHeadingFont, receiverCellTimeFont: inboxViewVM.receiverCellTimeFont, receiverCellFontColor: inboxViewVM.receiverFontCellColor, receiverCellBackgroundColor: inboxViewVM.receiverCellBackgroundColor, chatData: chatMessage).id(chatMessage.id)
+                                ReceiverChatCell(
+                                    receiverCellMessageFont: inboxViewVM.receiverCellMessageFont,
+                                    receiverCellHeadingFont: inboxViewVM.receiverHeadingFont,
+                                    receiverCellTimeFont: inboxViewVM.receiverCellTimeFont,
+                                    receiverCellFontColor: inboxViewVM.receiverFontCellColor,
+                                    receiverCellBackgroundColor: inboxViewVM.receiverCellBackgroundColor,
+                                    chatData: chatMessage).id(chatMessage.id)
                             }
                         }
                     }
@@ -71,19 +85,27 @@ struct InboxView: View {
                             scrollView.scrollTo(id)
                         }
                     })
-                    //TODO: - Also scroll to last message on loading the screen
+                    // TODO: - Also scroll to last message on loading the screen
                 })
             }).background(.clear)
-            
-            //Chat button tapped
-            ChatTextfieldView(textFieldFont: inboxViewVM.textFieldFont, textFieldPlaceholderText: inboxViewVM.textFieldPlaceholderText, textFieldBackgroundColor: inboxViewVM.textFieldBackgroundColor, textfieldAccentColor: inboxViewVM.textfieldAccentColor, textFieldFontColor: inboxViewVM.textFieldFontColor, buttonColor: inboxViewVM.buttonColor, mainBackground: inboxViewVM.mainBackground, chatButtonAction: { text in
+
+            // Chat button tapped
+            ChatTextfieldView(
+                textFieldFont: inboxViewVM.textFieldFont,
+                textFieldPlaceholderText: inboxViewVM.textFieldPlaceholderText,
+                textFieldBackgroundColor: inboxViewVM.textFieldBackgroundColor,
+                textfieldAccentColor: inboxViewVM.textfieldAccentColor,
+                textFieldFontColor: inboxViewVM.textFieldFontColor,
+                buttonColor: inboxViewVM.buttonColor,
+                mainBackground: inboxViewVM.mainBackground,
+                chatButtonAction: { text in
                 inboxViewVM.sendMessage(text: text)
             })
         }
-        //TODO: - get main background in init.
+        // TODO: - get main background in init.
         .background(Constants.UIConstants.AlabasterColor)
         .navigationBarHidden(true)
-    
+
     }
 }
 

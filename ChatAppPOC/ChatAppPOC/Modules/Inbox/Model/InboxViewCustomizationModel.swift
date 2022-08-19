@@ -8,17 +8,16 @@
 import Foundation
 import SwiftUI
 
-
 struct InboxViewCustomizationModel {
     // TITLE VIEW
     var titleName               : String?
     var customFont              : Font?
     var titleFontColor          : Color?
     var titleBarBackgroundColor  : Color?
-    //TUDU :
+    // TUDU :
     // - backButtonColor
     // - menu buttonColor
-    
+
     // SENDER CHAT CELL
     var senderShouldShowHeading     : Bool?
     var senderCellMessageFont       : Font?
@@ -26,14 +25,14 @@ struct InboxViewCustomizationModel {
     var senderCellTimeFont          : Font?
     var senderCellFontColor         : Color?
     var senderCellBackgroundColor   : Color?
-    
+
     // RECEIVER CHAT CELL
     var receiverCellMessageFont     : Font?
     var receiverHeadingFont         : Font?
     var receiverCellTimeFont        : Font?
     var receiverFontCellColor       : Color?
     var receiverCellBackgroundColor : Color?
-    
+
     // CHAT TEXTFIELD VIEW
     var textFieldFont               : Font?
     var textFieldPlaceholderText    : String?
@@ -43,8 +42,8 @@ struct InboxViewCustomizationModel {
     var buttonColor                 : Color?
     var mainBackground              : Color?
     var shouldShowGalleryButton     : Bool?
-    
-    //MAIN
+
+    // MAIN
     var mainBackgroundColor         : Color?
 }
 
@@ -54,7 +53,7 @@ enum InboxViewCustomizationModelEnum {
     case customFont
     case titleFontColor
     case titleBarBackgroundColor
-    
+
     // SENDER CHAT CELL
     case senderShouldShowHeading
     case senderCellMessageFont
@@ -62,14 +61,14 @@ enum InboxViewCustomizationModelEnum {
     case senderCellTimeFont
     case senderCellFontColor
     case senderCellBackgroundColor
-    
+
     // RECEIVER CHAT CELL
     case receiverCellMessageFont
     case receiverHeadingFont
     case receiverCellTimeFont
     case receiverFontCellColor
     case receiverCellBackgroundColor
-    
+
     // CHAT TEXTFIELD VIEW
     case textFieldFont
     case textFieldPlaceholderText
@@ -77,5 +76,5 @@ enum InboxViewCustomizationModelEnum {
     case textfieldAccentColor
     case textFieldFontColor
     case buttonColor
-    case mainBackground             
+    case mainBackground
 }

@@ -8,30 +8,29 @@
 import Foundation
 import SwiftUI
 
+struct TitleView: View {
+    // MARK: - Properties
+    // Personalization
+    var title: String
+    var titleFont: Font
+    var titleFontColor: Color
+    var titleBarBackroundColor: Color
 
-struct TitleView : View {
-    //MARK: - Properties
-    //Personalization
-    var title : String
-    var titleFont : Font
-    var titleFontColor : Color
-    var titleBarBackroundColor : Color
-    
-    //Closures
-    var menuAction : (() -> ())? = nil
-    var backAction : (() -> ())? = nil
-    var imageAction : (() -> ())? = nil
-    
-    //Private
-    let imageName : String = "line.3.horizontal"
-    let personImage : String = "person.crop.circle"
-    let backImage : String = "chevron.backward"
-    
-    //MARK: - Body
+    // Closures
+    var menuAction : (() -> Void)?
+    var backAction : (() -> Void)?
+    var imageAction : (() -> Void)?
+
+    // Private
+    let imageName: String = "line.3.horizontal"
+    let personImage: String = "person.crop.circle"
+    let backImage: String = "chevron.backward"
+
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .center, spacing: 0, content: {
             HStack(alignment: .center, spacing: 5) {
-                //Back Button
+                // Back Button
                 Button(action: {
                     if let backAction = backAction {
                         backAction()
@@ -42,8 +41,8 @@ struct TitleView : View {
                         .font(.title)
                         .frame(width: 44, height: 44, alignment: .center)
                 })
-                
-                //Userimage
+
+                // Userimage
                 Button(action: {
                     if let imageAction = imageAction {
                         imageAction()
@@ -55,15 +54,15 @@ struct TitleView : View {
                         .frame(width: 44, height: 44, alignment: .center)
                         .foregroundColor(Constants.UIConstants.charcoalBlack)
                 })
-                
-                //Title
+
+                // Title
                 Text(title)
                     .foregroundColor(titleFontColor)
                     .font(titleFont)
                     .bold()
                     .padding(5)
                 Spacer()
-                //Hamburger Menu
+                // Hamburger Menu
                 Button(action: {
                     if let menuAction = menuAction {
                         menuAction()
@@ -89,4 +88,3 @@ struct TitleView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
-

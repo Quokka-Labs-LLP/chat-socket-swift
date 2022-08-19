@@ -8,20 +8,20 @@
 import SwiftUI
 
 struct ReceiverChatCell: View {
-    //MARK: - Properties
-    //Customization
+    // MARK: - Properties
+    // Customization
     let receiverCellMessageFont       : Font
     let receiverCellHeadingFont       : Font
     let receiverCellTimeFont          : Font
     let receiverCellFontColor         : Color
     let receiverCellBackgroundColor   : Color
-    
-    //Data
+
+    // Data
     let chatData : ChatDataModel
-    
-    //private
+
+    // private
     private let alignment : HorizontalAlignment = .trailing
-    
+
     var body: some View {
         // For Sender
         HStack(alignment: .center, spacing: 0, content: {
@@ -56,7 +56,13 @@ struct ReceiverChatCell: View {
 
 struct ReceiverChatCell_Previews: PreviewProvider {
     static var previews: some View {
-        ReceiverChatCell(receiverCellMessageFont: Constants.UIConstants.defaultFont(size: .body), receiverCellHeadingFont: Constants.UIConstants.defaultFont(size: .subHeading), receiverCellTimeFont: Constants.UIConstants.defaultFont(size: .callout), receiverCellFontColor: Constants.UIConstants.charcoalBlack, receiverCellBackgroundColor: Constants.UIConstants.DesertSandColor, chatData: ChatDataModel(message : "Hii This is temp message", userName : "Manni", imageUrl: "", timeStamp: "10:00 am", isMultimediaCell: false, isSender  : false))
+        ReceiverChatCell(
+            receiverCellMessageFont: Constants.UIConstants.defaultFont(size: .body),
+            receiverCellHeadingFont: Constants.UIConstants.defaultFont(size: .subHeading),
+            receiverCellTimeFont: Constants.UIConstants.defaultFont(size: .callout),
+            receiverCellFontColor: Constants.UIConstants.charcoalBlack,
+            receiverCellBackgroundColor: Constants.UIConstants.DesertSandColor,
+            chatData: ChatDataModel(message : "Hii This is temp message", userName : "Manni", imageUrl: "", timeStamp: "10:00 am", isMultimediaCell: false, isSender  : false))
             .previewLayout(.sizeThatFits)
     }
 }

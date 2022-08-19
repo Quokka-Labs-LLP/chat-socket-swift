@@ -8,30 +8,29 @@
 import Foundation
 import SwiftUI
 
-
 struct TitleView : View {
-    //MARK: - Properties
-    //Personalization
+    // MARK: - Properties
+    // Personalization
     var title : String
     var titleFont : Font
     var titleFontColor : Color
     var titleBarBackroundColor : Color
-    
-    //Closures
-    var menuAction : (() -> ())? = nil
-    var backAction : (() -> ())? = nil
-    var imageAction : (() -> ())? = nil
-    
-    //Private
+
+    // Closures
+    var menuAction : (() -> Void)?
+    var backAction : (() -> Void)?
+    var imageAction : (() -> Void)?
+
+    // Private
     let imageName : String = "line.3.horizontal"
     let personImage : String = "person.crop.circle"
     let backImage : String = "chevron.backward"
-    
-    //MARK: - Body
+
+    // MARK: - Body
     var body: some View {
         VStack(alignment: .center, spacing: 0, content: {
             HStack(alignment: .center, spacing: 5) {
-                //Back Button
+                // Back Button
                 Button(action: {
                     if let backAction = backAction {
                         backAction()
@@ -42,8 +41,8 @@ struct TitleView : View {
                         .font(.title)
                         .frame(width: 34, height: 34, alignment: .center)
                 })
-                
-                //Userimage
+
+                // Userimage
                 Button(action: {
 //                    imageAction()?
                 }, label: {
@@ -53,8 +52,8 @@ struct TitleView : View {
                         .frame(width: 38, height: 38, alignment: .center)
                         .foregroundColor(Constants.UIConstants.charcoalBlack)
                 })
-                
-                //Title
+
+                // Title
                 Text(title)
                     .foregroundColor(titleFontColor)
                     .font(titleFont).bold()
@@ -62,9 +61,9 @@ struct TitleView : View {
                     .minimumScaleFactor(0.25)
                     .padding(5)
                     .padding(.trailing)
-                
+
                 Spacer()
-                //Hamburger Menu
+                // Hamburger Menu
                 Button(action: {
                     if let menuAction = menuAction {
                         menuAction()
@@ -90,4 +89,3 @@ struct TitleView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
-

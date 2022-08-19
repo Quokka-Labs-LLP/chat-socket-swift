@@ -10,7 +10,7 @@ import SocketIO
 
 // Wrapper for SocketIO
 class ChatSocket {
-    //MARK: - Properties
+    // MARK: - Properties
     // public properties
     var urlString : String? {
         didSet {
@@ -27,47 +27,45 @@ class ChatSocket {
     var messageSendEvent : String = ""
     var messageReceiveEvent : String = ""
     var logoutEvent : String = ""
-    var chatSocketErrors : ((Error) -> ())?
-    
-    
-    //private properties
+    var chatSocketErrors : ((Error) -> Void)?
+
+    // private properties
     private var socketManager : SocketManager?
     private var socket : SocketIOClient?
-    
-    //MARK: - Singleton
+
+    // MARK: - Singleton
     static let sharedInstance = ChatSocket()
-    
+
     private init() {
-        
+
     }
-    
-    //MARK: - Private methods
+
+    // MARK: - Private methods
     private func setupServer(urlString: String) {
         guard let serverUrl = URL(string: urlString) else {
             Log.info(type: .error, message: Constants.StringConstants.invalidUrl)
             return
         }
-        
+
         let socketConfiguration = SocketIOClientConfiguration(arrayLiteral: SocketIOClientConfiguration.Element.log(isLoggingEnabled))
-        
-        
+
         socketManager = SocketManager(socketURL: serverUrl, config: socketConfiguration)
-        
+
         if let socketManager = socketManager {
             self.socket = socketManager.defaultSocket
         }
-        
+
     }
-    
-    //MARK: - Public Methods
+
+    // MARK: - Public Methods
     // Connect
     public func connect(onMessageReceiveEvent completionHandler : @escaping ((String, Error?) -> Void)) {
         if let socket = socket {
-            socket.on(clientEvent: .connect) { response, ack in
+            socket.on(clientEvent: .connect) { response, _ in
                 Log.info(type: .notice, title: Constants.StringConstants.connectionRequest, message: Constants.StringConstants.connectionSuccessfull)
                 Log.info(type: .info,title: Constants.StringConstants.startedListeningForEvent, message: self.messageReceiveEvent)
-                socket.on(self.messageReceiveEvent) { data, ack in
-                    //Event hit for delivered
+                socket.on(self.messageReceiveEvent) { data, _ in
+                    // Event hit for delivered
                     guard let response = data[0] as? String else {return}
                     Log.info(type: .info, title: Constants.StringConstants.serverResponse, message: response)
                     completionHandler(response, nil)
@@ -76,17 +74,17 @@ class ChatSocket {
             socket.connect()
         }
     }
-    
+
     // Disconnect
     public func disconnect() {
         if let socket = socket {
-            socket.on(clientEvent: .disconnect) { response, ack in
+            socket.on(clientEvent: .disconnect) { _, _ in
                 Log.info(type: .notice, title: Constants.StringConstants.disconnectionRequest, message: Constants.StringConstants.disconnectionSuccessfull)
             }
             socket.disconnect()
         }
     }
-    
+
     // send message
     public func sendMessage(_ message: String) {
         if let socket = socket {
@@ -94,18 +92,18 @@ class ChatSocket {
             socket.emit(messageSendEvent, message)
         }
     }
-    
+
     public func sendMultimediaMessage(_ imageUrl: String) {
         if let socket = socket {
             Log.info(type: .info, title: Constants.StringConstants.sendingMultimediaMessage, message: imageUrl)
             socket.emit(messageSendEvent, imageUrl)
         }
     }
-    
-    //TODO: - Implement this stubs
-    //Message seen
+
+    // TODO: - Implement this stubs
+    // Message seen
     public func messageSeen() {}
-    
-    //Message Delivered
+
+    // Message Delivered
     public func messageDelivered() {}
 }

@@ -7,21 +7,20 @@
 
 import Foundation
 
-
 class Log {
-    
-    enum LogType : String {
+
+    enum LogType: String {
         case notice     = "[NOTICE]:"
         case info       = "[INFO]:"
         case warning    = "[WARNING]:"
         case error      = "[ERROR]:"
     }
-    
+
     // change this value if you want to disable logging throughout the app.
-    private static var debuggingEnabled : Bool = true
-    
+    private static var debuggingEnabled: Bool = true
+
     class func info(type: LogType, title: String? = nil, message: String) {
-        
+
         if debuggingEnabled {
             if let title = title {
                 print("\(type.rawValue) \"\(title)\" >>> \(message).")
@@ -30,7 +29,7 @@ class Log {
             }
         }
     }
-    
+
     class func toggleLogging(_ isEnabled: Bool) {
         self.debuggingEnabled = isEnabled
     }

@@ -10,10 +10,10 @@ import SwiftUI
 struct OnboardingView: View {
     @State var shouldMove = false
     @State var shouldPresentActionSheet = false
-    
+
     let friends : [String] = ["Barak Obama", "Osama Bin Laden"]
     @State var selectedFriend : String = ""
-    
+
     var body: some View {
         NavigationView(content: {
             ZStack(alignment: Alignment(horizontal: .center, vertical: .center), content: {
@@ -23,7 +23,7 @@ struct OnboardingView: View {
                         .font(.title)
                         .bold()
                         .foregroundColor(Constants.UIConstants.charcoalBlack)
-                    
+
                     // Chat Listing
                     ScrollView {
                         VStack(content: {
@@ -51,16 +51,14 @@ struct OnboardingView: View {
                                     InboxView(customization: InboxViewCustomizationModel(titleName: selectedFriend))
                                 }, label: {
                                     EmptyView()
-                                }).onChange(of: selectedFriend, perform: { sf in
+                                }).onChange(of: selectedFriend, perform: { _ in
                                     shouldMove = true
                                 })
                             }
                         })
                     }
                 })
-                
-                
-                
+
                 Text("\"This screen is for Demo Purpose Only.\"")
                     .font(.title)
                     .minimumScaleFactor(0.25)
@@ -73,12 +71,6 @@ struct OnboardingView: View {
             .navigationBarHidden(true)
 
         })
-    }
-}
-
-extension OnboardingView : InboxViewDelegate {
-    func menuButtonTapped() {
-        shouldPresentActionSheet = true
     }
 }
 

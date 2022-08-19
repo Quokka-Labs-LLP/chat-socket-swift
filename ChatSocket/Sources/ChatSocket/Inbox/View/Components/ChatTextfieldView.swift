@@ -8,23 +8,23 @@
 import Foundation
 import SwiftUI
 
-struct ChatTextfieldView : View {
-    //MARK: - Properties
-    //State
-    @State var textfieldInput : String = Constants.StringConstants.emptyString
-    //Personalization
-    let textFieldFont : Font
-    let textFieldPlaceholderText : String
-    let textFieldBackgroundColor : Color
-    let textfieldAccentColor : Color
-    let textFieldFontColor : Color
-    let buttonColor : Color
-    let mainBackground : Color
-    
-    //Closure
-    let chatButtonAction : (String) -> ()
-    
-    //MARK: - Body
+struct ChatTextfieldView: View {
+    // MARK: - Properties
+    // State
+    @State var textfieldInput: String = Constants.StringConstants.emptyString
+    // Personalization
+    let textFieldFont: Font
+    let textFieldPlaceholderText: String
+    let textFieldBackgroundColor: Color
+    let textfieldAccentColor: Color
+    let textFieldFontColor: Color
+    let buttonColor: Color
+    let mainBackground: Color
+
+    // Closure
+    let chatButtonAction: (String) -> Void
+
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             Divider()
@@ -38,8 +38,7 @@ struct ChatTextfieldView : View {
                     .foregroundColor(textFieldFontColor)
                     .cornerRadius(Constants.UIConstants.textFieldCornerRadius)
                     .shadow(color: Constants.UIConstants.charcoalBlack.opacity(0.3), radius: 2, x: 0, y: 0)
-                    
-                    
+
                 Button(action: {
                     chatButtonAction(textfieldInput)
                     textfieldInput = Constants.StringConstants.emptyString
@@ -50,15 +49,14 @@ struct ChatTextfieldView : View {
                         .foregroundColor(buttonColor)
                         .shadow(color: Constants.UIConstants.charcoalBlack.opacity(0.3), radius: 2, x: 0, y: 0)
                 })
-                
+
             })
             .padding()
         }.background(mainBackground)
     }
 }
 
-
-struct ChatTextfieldView_Previews : PreviewProvider {
+struct ChatTextfieldView_Previews: PreviewProvider {
     static var previews: some View {
         ChatTextfieldView(textFieldFont: Constants.UIConstants.defaultFont(size: .body), textFieldPlaceholderText: Constants.StringConstants.defaultPlaceholder, textFieldBackgroundColor: Constants.UIConstants.alabasterColor, textfieldAccentColor: Constants.UIConstants.desertSandColor, textFieldFontColor: Constants.UIConstants.charcoalBlack, buttonColor: Constants.UIConstants.charcoalBlack, mainBackground: Constants.UIConstants.opalColor, chatButtonAction: { _ in
             // send tapped
@@ -66,4 +64,3 @@ struct ChatTextfieldView_Previews : PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
-

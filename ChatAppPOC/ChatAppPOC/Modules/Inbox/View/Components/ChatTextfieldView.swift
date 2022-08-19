@@ -9,11 +9,11 @@ import Foundation
 import SwiftUI
 
 struct ChatTextfieldView : View {
-    //MARK: - Properties
-    //State
+    // MARK: - Properties
+    // State
     @State var textfieldInput : String = Constants.StringConstants.emptyString
-    
-    //Personalization
+
+    // Personalization
     let textFieldFont : Font
     let textFieldPlaceholderText : String
     let textFieldBackgroundColor : Color
@@ -22,16 +22,16 @@ struct ChatTextfieldView : View {
     let buttonColor : Color
     let mainBackground : Color
     let shouldShowUploadImage : Bool = true
-    
-    //Closure
-    let chatButtonAction : (String) -> ()
-    
-    //MARK: - Body
+
+    // Closure
+    let chatButtonAction : (String) -> Void
+
+    // MARK: - Body
     var body: some View {
         VStack(spacing: 0) {
             Divider()
             HStack(alignment: .center, spacing: 10, content: {
-                //Textfield
+                // Textfield
                 TextField(textFieldPlaceholderText, text: $textfieldInput)
                     .frame(height: 34)
                     .font(textFieldFont)
@@ -41,11 +41,11 @@ struct ChatTextfieldView : View {
                     .foregroundColor(textFieldFontColor)
                     .cornerRadius(Constants.UIConstants.textFieldCornerRadius)
                     .shadow(color: Constants.UIConstants.charcoalBlack.opacity(0.3), radius: 2, x: 0, y: 0)
-                
-                //Image Upload button
+
+                // Image Upload button
                 if shouldShowUploadImage {
                     Button(action: {
-                        //upload image callback
+                        // upload image callback
                     }, label: {
                         Image(systemName: "photo.on.rectangle.angled")
                             .resizable()
@@ -55,8 +55,7 @@ struct ChatTextfieldView : View {
                             .shadow(color: Constants.UIConstants.charcoalBlack.opacity(0.3), radius: 2, x: 0, y: 0)
                     })
                 }
-                
-                  
+
                 // enable/disable on textfield type
                 Button(action: {
                     chatButtonAction(textfieldInput)
@@ -66,25 +65,31 @@ struct ChatTextfieldView : View {
                         .resizable()
                         .frame(width: 34, height: 34, alignment: .center)
                         .foregroundColor(buttonColor)
-                        
+
                 })
                 .disabled(textfieldInput == "" ? true : false)
                 .opacity(textfieldInput == "" ? 0.8 : 1.0)
                 .shadow(color: Constants.UIConstants.charcoalBlack.opacity(textfieldInput == "" ? 0.0 : 0.3), radius: 2, x: 0, y: 0)
-                
+
             })
             .padding()
         }.background(mainBackground)
     }
 }
 
-
 struct ChatTextfieldView_Previews : PreviewProvider {
     static var previews: some View {
-        ChatTextfieldView(textFieldFont: Constants.UIConstants.defaultFont(size: .body), textFieldPlaceholderText: Constants.StringConstants.defaultPlaceholder, textFieldBackgroundColor: Constants.UIConstants.AlabasterColor, textfieldAccentColor: Constants.UIConstants.DesertSandColor, textFieldFontColor: Constants.UIConstants.charcoalBlack, buttonColor: Constants.UIConstants.charcoalBlack, mainBackground: Constants.UIConstants.OpalColor, chatButtonAction: { _ in
+        ChatTextfieldView(
+            textFieldFont: Constants.UIConstants.defaultFont(size: .body),
+            textFieldPlaceholderText: Constants.StringConstants.defaultPlaceholder,
+            textFieldBackgroundColor: Constants.UIConstants.AlabasterColor,
+            textfieldAccentColor: Constants.UIConstants.DesertSandColor,
+            textFieldFontColor: Constants.UIConstants.charcoalBlack,
+            buttonColor: Constants.UIConstants.charcoalBlack,
+            mainBackground: Constants.UIConstants.OpalColor,
+            chatButtonAction: { _ in
             // send tapped
         })
             .previewLayout(.sizeThatFits)
     }
 }
-

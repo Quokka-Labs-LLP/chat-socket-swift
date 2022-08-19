@@ -235,6 +235,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BD6727E1289B83AE00AB7C85 /* Build configuration list for PBXNativeTarget "ChatAppPOC" */;
 			buildPhases = (
+				257C590E28AF70EA00F27992 /* Run SwiftLint Script */,
 				BD6727CF289B83AD00AB7C85 /* Sources */,
 				BD6727D0289B83AD00AB7C85 /* Frameworks */,
 				BD6727D1289B83AD00AB7C85 /* Resources */,
@@ -298,6 +299,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		257C590E28AF70EA00F27992 /* Run SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BD6727CF289B83AD00AB7C85 /* Sources */ = {
@@ -448,7 +470,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatAppPOC/Preview Content\"";
-				DEVELOPMENT_TEAM = 28BNK8355W;
+				DEVELOPMENT_TEAM = SRP757YJNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -480,7 +502,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChatAppPOC/Preview Content\"";
-				DEVELOPMENT_TEAM = 28BNK8355W;
+				DEVELOPMENT_TEAM = SRP757YJNR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

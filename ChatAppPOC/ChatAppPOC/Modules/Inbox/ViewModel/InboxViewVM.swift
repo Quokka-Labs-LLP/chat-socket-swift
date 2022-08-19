@@ -10,18 +10,18 @@ import SwiftUI
 import SocketIO
 
 class InboxViewVM : ObservableObject {
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     var socketManager : SocketManager?
     var socket : SocketIOClient?
-    var inboxCustomization : InboxViewCustomizationModel? {
-        didSet {
-            if let inboxCustomization = inboxCustomization {
-                setupCustomizations(inboxCustomization)
-            }
-        }
-    }
-    
+//    var inboxCustomization : InboxViewCustomizationModel? {
+//        didSet {
+//            if let inboxCustomization = inboxCustomization {
+//                setupCustomizations(inboxCustomization)
+//            }
+//        }
+//    }
+
     var chatSocket : ChatSocket = {
         /// URL for local host ws://localhost:3000
         let chatSocket = ChatSocket.sharedInstance
@@ -34,132 +34,128 @@ class InboxViewVM : ObservableObject {
         chatSocket.isLoggingEnabled = true
         return chatSocket
     }()
-    
-    //Published
+
+    // Published
     @Published var chatMessages : [ChatDataModel] = []
-    
-    //TODO: group all these properties using struct or enum.
+
+    // TODO: group all these properties using struct or enum.
     // Customization options and default values
     // TITLE VIEW
-    var titleName               : String    = Constants.StringConstants.inboxTitleString
-    var customFont              : Font      = Constants.UIConstants.defaultFont(size: .title)
-    var titleFontColor          : Color     = Constants.UIConstants.charcoalBlack
-    var titleBarBackgroundColor  : Color     = Constants.UIConstants.OpalColor
-    
+    let titleName: String
+    let customFont: Font
+    let titleFontColor: Color
+    let titleBarBackgroundColor: Color
+
     // CHAT CELL
     // - Sender
-    var senderShouldShowHeading     : Bool = false
-    var senderCellMessageFont       : Font = Constants.UIConstants.defaultFont(size: .body)
-    var senderCellHeadingFont       : Font = Constants.UIConstants.defaultFont(size: .body)
-    var senderCellTimeFont          : Font = Constants.UIConstants.defaultFont(size: .callout)
-    var senderCellFontColor         : Color = Constants.UIConstants.charcoalBlack
-    var senderCellBackgroundColor   : Color = Constants.UIConstants.DesertSandColor
-    
+    let senderShouldShowHeading: Bool
+    let senderCellMessageFont: Font
+    let senderCellHeadingFont: Font
+    let senderCellTimeFont: Font
+    let senderCellFontColor: Color
+    let senderCellBackgroundColor: Color
+
     // - Receiver
-    var receiverCellMessageFont     : Font = Constants.UIConstants.defaultFont(size: .body)
-    var receiverHeadingFont         : Font = Constants.UIConstants.defaultFont(size: .subHeading)
-    var receiverCellTimeFont        : Font = Constants.UIConstants.defaultFont(size: .callout)
-    var receiverFontCellColor       : Color = Constants.UIConstants.charcoalBlack
-    var receiverCellBackgroundColor : Color = Constants.UIConstants.DesertSandColor
-    
-    //CHAT TEXTFIELD VIEW
-    var textFieldFont : Font = Constants.UIConstants.defaultFont(size: .body)
-    var textFieldPlaceholderText : String = Constants.StringConstants.defaultPlaceholder
-    var textFieldBackgroundColor : Color = Constants.UIConstants.AlabasterColor
-    var textfieldAccentColor : Color = Constants.UIConstants.DesertSandColor
-    var textFieldFontColor : Color = Constants.UIConstants.charcoalBlack
-    var buttonColor : Color = Constants.UIConstants.charcoalBlack
-    var mainBackground : Color = Constants.UIConstants.OpalColor
-    
-    //Alert
+    let receiverCellMessageFont: Font
+    let receiverHeadingFont: Font
+    let receiverCellTimeFont: Font
+    let receiverFontCellColor: Color
+    let receiverCellBackgroundColor: Color
+
+    // CHAT TEXTFIELD VIEW
+    let textFieldFont: Font
+    let textFieldPlaceholderText: String
+    let textFieldBackgroundColor: Color
+    let textfieldAccentColor: Color
+    let textFieldFontColor: Color
+    let buttonColor: Color
+    let mainBackground: Color
+
+    init(inboxCustomization : InboxViewCustomizationModel?) {
+        // - title view
+        self.titleName = inboxCustomization?.titleName ?? Constants.StringConstants.inboxTitleString
+        self.customFont = inboxCustomization?.customFont ?? Constants.UIConstants.defaultFont(size: .title)
+        self.titleFontColor = inboxCustomization?.titleFontColor ?? Constants.UIConstants.charcoalBlack
+        self.titleBarBackgroundColor = inboxCustomization?.titleBarBackgroundColor ?? Constants.UIConstants.OpalColor
+
+        // - sender cell
+        self.senderShouldShowHeading = inboxCustomization?.senderShouldShowHeading ?? false
+        self.senderCellMessageFont = inboxCustomization?.senderCellMessageFont ?? Constants.UIConstants.defaultFont(size: .body)
+        self.senderCellHeadingFont = inboxCustomization?.senderCellHeadingFont ?? Constants.UIConstants.defaultFont(size: .body)
+        self.senderCellTimeFont = inboxCustomization?.senderCellTimeFont ?? Constants.UIConstants.defaultFont(size: .callout)
+        self.senderCellFontColor = inboxCustomization?.senderCellFontColor ?? Constants.UIConstants.charcoalBlack
+        self.senderCellBackgroundColor = inboxCustomization?.senderCellBackgroundColor ?? Constants.UIConstants.DesertSandColor
+
+        // receiver cell
+        self.receiverCellMessageFont = inboxCustomization?.receiverCellMessageFont ?? Constants.UIConstants.defaultFont(size: .body)
+        self.receiverHeadingFont = inboxCustomization?.receiverHeadingFont ?? Constants.UIConstants.defaultFont(size: .subHeading)
+        self.receiverCellTimeFont = inboxCustomization?.receiverCellTimeFont ?? Constants.UIConstants.defaultFont(size: .callout)
+        self.receiverFontCellColor = inboxCustomization?.receiverFontCellColor ?? Constants.UIConstants.charcoalBlack
+        self.receiverCellBackgroundColor = inboxCustomization?.receiverCellBackgroundColor ?? Constants.UIConstants.DesertSandColor
+
+        // Chat textfield
+        self.textFieldFont = inboxCustomization?.textFieldFont ?? Constants.UIConstants.defaultFont(size: .body)
+        self.textFieldPlaceholderText = inboxCustomization?.textFieldPlaceholderText ?? Constants.StringConstants.defaultPlaceholder
+        self.textFieldBackgroundColor = inboxCustomization?.textFieldBackgroundColor ?? Constants.UIConstants.AlabasterColor
+        self.textfieldAccentColor = inboxCustomization?.textfieldAccentColor ?? Constants.UIConstants.DesertSandColor
+        self.textFieldFontColor = inboxCustomization?.textFieldFontColor ?? Constants.UIConstants.charcoalBlack
+        self.buttonColor = inboxCustomization?.buttonColor ?? Constants.UIConstants.charcoalBlack
+        self.mainBackground = inboxCustomization?.mainBackground ?? Constants.UIConstants.OpalColor
+    }
+
+    // Alert
     @Published var shouldPresentActionSheet : Bool = false
-    
-    //MARK: - Public methods
+
+    // MARK: - Public methods
     func connect() {
-        chatSocket.connect(onMessageReceiveEvent: { responseMessage, error  in
+        chatSocket.connect(onMessageReceiveEvent: { responseMessage, _  in
             self.chatMessages.append(ChatDataModel(message: responseMessage, userName: "User", imageUrl: "", timeStamp: self.getCurrentTime(), isMultimediaCell: nil, isSender: false))
         })
     }
-    
+
     func sendMessage(text: String) {
         chatMessages.append(ChatDataModel(message: text, userName: "Manni", imageUrl: nil, timeStamp: getCurrentTime(), isMultimediaCell: nil, isSender: true))
         chatSocket.sendMessage(text)
     }
-    
+
     func sendMultimediaMessage(image: String) {
         chatMessages.append(ChatDataModel(message: nil, userName: "Manni", imageUrl: "demoMessageImage", timeStamp: getCurrentTime(), isMultimediaCell: nil, isSender: true))
         chatSocket.sendMultimediaMessage(image)
     }
-    
-    //MARK: - private methods
+
+    // MARK: - private methods
     private func getCurrentTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Constants.StringConstants.timeFormat
         let date = dateFormatter.string(from: Date())
-        
+
         return eliminateZeroFromTime(timeString: date)
     }
-    
-    //---- Timestamp
+
+    // ---- Timestamp
     private func getCurrentTimeStamp() -> Int {
         let timeStamp = Date().timeIntervalSince1970
         return Int(timeStamp) // will always be 10 Digits
     }
-    
+
     private func resolveTimeStamp(_ timeStamp: Int) -> String {
         let timeInterval = TimeInterval(timeStamp)
         let rawDateinGMT = NSDate(timeIntervalSince1970: timeInterval)
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = Constants.StringConstants.timeFormat
         let formattedDate = dateFormatter.string(from: rawDateinGMT as Date)
-        
+
         return formattedDate
     }
-    //---- Timestamp
-    
+    // ---- Timestamp
+
     func eliminateZeroFromTime(timeString: String ) -> String {
         var time = timeString
-        
+
         if time.first == "0" {
             time.remove(at: time.startIndex)
         }
-        
+
         return time
     }
-    
-    private func setupCustomizations(_ customization: InboxViewCustomizationModel) {
-        DispatchQueue.main.async {
-            // - title view
-            if let titleName = customization.titleName {self.titleName = titleName }
-            if let customFont = customization.customFont { self.customFont = customFont }
-            if let titleFontColor = customization.titleFontColor { self.titleFontColor = titleFontColor }
-            if let titleBarBackgroundColor = customization.titleBarBackgroundColor { self.titleBarBackgroundColor = titleBarBackgroundColor }
-            
-            // - sender cell
-            if let senderShouldShowHeading = customization.senderShouldShowHeading { self.senderShouldShowHeading = senderShouldShowHeading}
-            if let senderCellMessageFont = customization.senderCellMessageFont { self.senderCellMessageFont = senderCellMessageFont }
-            if let senderCellHeadingFont = customization.senderCellHeadingFont { self.senderCellHeadingFont = senderCellHeadingFont  }
-            if let senderCellTimeFont = customization.senderCellTimeFont { self.senderCellTimeFont = senderCellTimeFont  }
-            if let senderCellFontColor = customization.senderCellFontColor { self.senderCellFontColor = senderCellFontColor  }
-            if let senderCellBackgroundColor = customization.senderCellBackgroundColor { self.senderCellBackgroundColor = senderCellBackgroundColor  }
-            
-            // receiver cell
-            if let receiverCellMessageFont     = customization.receiverCellMessageFont { self.receiverCellMessageFont = receiverCellMessageFont }
-            if let receiverHeadingFont         = customization.receiverHeadingFont { self.receiverHeadingFont = receiverHeadingFont }
-            if let receiverCellTimeFont        = customization.receiverCellTimeFont { self.receiverCellTimeFont = receiverCellTimeFont }
-            if let receiverFontCellColor       = customization.receiverFontCellColor { self.receiverFontCellColor = receiverFontCellColor }
-            if let receiverCellBackgroundColor = customization.receiverCellBackgroundColor { self.receiverCellBackgroundColor = receiverCellBackgroundColor }
-            
-            // Chat textfield
-            if let textFieldFont = customization.textFieldFont { self.textFieldFont = textFieldFont }
-            if let textFieldPlaceholderText = customization.textFieldPlaceholderText { self.textFieldPlaceholderText = textFieldPlaceholderText }
-            if let textFieldBackgroundColor = customization.textFieldBackgroundColor { self.textFieldBackgroundColor = textFieldBackgroundColor }
-            if let textfieldAccentColor = customization.textfieldAccentColor { self.textfieldAccentColor = textfieldAccentColor }
-            if let textFieldFontColor = customization.textFieldFontColor { self.textFieldFontColor = textFieldFontColor }
-            if let buttonColor = customization.buttonColor { self.buttonColor = buttonColor }
-            if let mainBackground = customization.mainBackground { self.mainBackground = mainBackground }
-        }
-    }
-        
-        
 }
