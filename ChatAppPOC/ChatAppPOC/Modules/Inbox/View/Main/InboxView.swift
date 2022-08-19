@@ -105,6 +105,9 @@ struct InboxView: View {
         // TODO: - get main background in init.
         .background(Constants.UIConstants.AlabasterColor)
         .navigationBarHidden(true)
+        .onTapGesture {
+            hideKeyboard()
+        }
 
     }
 }

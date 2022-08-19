@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		257C591028AFA84600F27992 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257C590F28AFA84600F27992 /* View+Extension.swift */; };
 		BD447B9B289D7AA300B7ABBC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD447B9A289D7AA300B7ABBC /* OnboardingView.swift */; };
 		BD6727D7289B83AD00AB7C85 /* ChatAppPOCApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6727D6289B83AD00AB7C85 /* ChatAppPOCApp.swift */; };
 		BD6727D9289B83AD00AB7C85 /* InboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD6727D8289B83AD00AB7C85 /* InboxView.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		257C590F28AFA84600F27992 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		BD447B9A289D7AA300B7ABBC /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		BD6727D3289B83AD00AB7C85 /* ChatAppPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatAppPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD6727D6289B83AD00AB7C85 /* ChatAppPOCApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAppPOCApp.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				BD95D3EA28A3D1DC00C9C6F7 /* Log.swift */,
+				257C590F28AFA84600F27992 /* View+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				BDB18BF328ACE4EB00074C05 /* SenderMultimediaChatCell.swift in Sources */,
 				BDF79A4E289BAB7B005D9995 /* SenderChatCell.swift in Sources */,
+				257C591028AFA84600F27992 /* View+Extension.swift in Sources */,
 				BD6727D9289B83AD00AB7C85 /* InboxView.swift in Sources */,
 				BD95D3EB28A3D1DC00C9C6F7 /* Log.swift in Sources */,
 				BD6727D7289B83AD00AB7C85 /* ChatAppPOCApp.swift in Sources */,

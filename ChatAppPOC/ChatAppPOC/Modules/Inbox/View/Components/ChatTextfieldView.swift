@@ -21,18 +21,28 @@ struct ChatTextfieldView : View {
     let textFieldFontColor : Color
     let buttonColor : Color
     let mainBackground : Color
-    let shouldShowUploadImage : Bool = true
+    @State var shouldShowUploadImage : Bool = true
 
     // Closure
     let chatButtonAction : (String) -> Void
 
     // MARK: - Body
     var body: some View {
+
+        let bindingTextFieldValue = Binding <String>(get: {
+            self.textfieldInput
+        }, set: {
+            self.textfieldInput = $0
+            withAnimation(.easeInOut(duration: 0.2)) {
+                self.shouldShowUploadImage = self.textfieldInput.isEmpty
+            }
+        })
+
         VStack(spacing: 0) {
             Divider()
             HStack(alignment: .center, spacing: 10, content: {
                 // Textfield
-                TextField(textFieldPlaceholderText, text: $textfieldInput)
+                TextField(textFieldPlaceholderText, text: bindingTextFieldValue)
                     .frame(height: 34)
                     .font(textFieldFont)
                     .padding(.horizontal, 10)
