@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BDBE623028B890F600D7D979 /* ChatSocketExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE622F28B890F600D7D979 /* ChatSocketExampleApp.swift */; };
+		BDBE623228B890F600D7D979 /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE623128B890F600D7D979 /* ChatListView.swift */; };
+		BDBE623428B890F700D7D979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDBE623328B890F700D7D979 /* Assets.xcassets */; };
+		BDBE623728B890F700D7D979 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDBE623628B890F700D7D979 /* Preview Assets.xcassets */; };
+		BDBE624928B895C800D7D979 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE624828B895C800D7D979 /* TitleView.swift */; };
+		BDBE624B28B8964900D7D979 /* PreviewConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE624A28B8964900D7D979 /* PreviewConstants.swift */; };
+		BDBE624E28B897E300D7D979 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE624D28B897E300D7D979 /* StringConstants.swift */; };
+		BDBE625128B8982800D7D979 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE625028B8982700D7D979 /* UIConstants.swift */; };
+		BDBE625328B8A0F800D7D979 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE625228B8A0F700D7D979 /* UserList.swift */; };
+		BDBE625528B8A1D800D7D979 /* ChatListVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDBE625428B8A1D800D7D979 /* ChatListVM.swift */; };
+		BDBE625D28B8AB6C00D7D979 /* BlackberryJam.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDBE625C28B8AB6C00D7D979 /* BlackberryJam.ttf */; };
+		BDBE626028B8AE3100D7D979 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDBE625F28B8AE3100D7D979 /* Montserrat-Bold.ttf */; };
+		BDBE626228B8AE3F00D7D979 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDBE626128B8AE3F00D7D979 /* Montserrat-Light.ttf */; };
+		BDBE626428B8AE4A00D7D979 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BDBE626328B8AE4A00D7D979 /* Montserrat-Regular.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BD5DA0A528D1E1C200D3EE32 /* ChatSocket */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ChatSocket; path = ../ChatSocket; sourceTree = "<group>"; };
+		BDBE622C28B890F600D7D979 /* ChatSocketExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatSocketExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDBE622F28B890F600D7D979 /* ChatSocketExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatSocketExampleApp.swift; sourceTree = "<group>"; };
+		BDBE623128B890F600D7D979 /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		BDBE623328B890F700D7D979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BDBE623628B890F700D7D979 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BDBE624828B895C800D7D979 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		BDBE624A28B8964900D7D979 /* PreviewConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewConstants.swift; sourceTree = "<group>"; };
+		BDBE624D28B897E300D7D979 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		BDBE625028B8982700D7D979 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		BDBE625228B8A0F700D7D979 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
+		BDBE625428B8A1D800D7D979 /* ChatListVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListVM.swift; sourceTree = "<group>"; };
+		BDBE625C28B8AB6C00D7D979 /* BlackberryJam.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BlackberryJam.ttf; sourceTree = "<group>"; };
+		BDBE625E28B8AB9300D7D979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BDBE625F28B8AE3100D7D979 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.ttf"; sourceTree = "<group>"; };
+		BDBE626128B8AE3F00D7D979 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		BDBE626328B8AE4A00D7D979 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BDBE622928B890F600D7D979 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BDBE622328B890F600D7D979 = {
+			isa = PBXGroup;
+			children = (
+				BDBE625628B8A54100D7D979 /* Packages */,
+				BDBE622E28B890F600D7D979 /* ChatSocketExample */,
+				BDBE622D28B890F600D7D979 /* Products */,
+				BDBE625828B8A56000D7D979 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BDBE622D28B890F600D7D979 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE622C28B890F600D7D979 /* ChatSocketExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BDBE622E28B890F600D7D979 /* ChatSocketExample */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE625E28B8AB9300D7D979 /* Info.plist */,
+				BDBE625B28B8AB4500D7D979 /* CustomFonts */,
+				BDBE624C28B897BD00D7D979 /* Constants */,
+				BDBE624628B895A400D7D979 /* Reusable */,
+				BDBE623E28B8954500D7D979 /* InboxViewExample */,
+				BDBE623D28B8953700D7D979 /* Resources */,
+				BDBE623528B890F700D7D979 /* Preview Content */,
+			);
+			path = ChatSocketExample;
+			sourceTree = "<group>";
+		};
+		BDBE623528B890F700D7D979 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE623628B890F700D7D979 /* Preview Assets.xcassets */,
+				BDBE624A28B8964900D7D979 /* PreviewConstants.swift */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BDBE623D28B8953700D7D979 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE622F28B890F600D7D979 /* ChatSocketExampleApp.swift */,
+				BDBE623328B890F700D7D979 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BDBE623E28B8954500D7D979 /* InboxViewExample */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE624428B8959000D7D979 /* ChatList */,
+			);
+			path = InboxViewExample;
+			sourceTree = "<group>";
+		};
+		BDBE623F28B8955D00D7D979 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE625428B8A1D800D7D979 /* ChatListVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BDBE624028B8956B00D7D979 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE624328B8957A00D7D979 /* Components */,
+				BDBE624228B8957700D7D979 /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BDBE624128B8957100D7D979 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BDBE624228B8957700D7D979 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE623128B890F600D7D979 /* ChatListView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BDBE624328B8957A00D7D979 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE625228B8A0F700D7D979 /* UserList.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		BDBE624428B8959000D7D979 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE624128B8957100D7D979 /* Model */,
+				BDBE624028B8956B00D7D979 /* View */,
+				BDBE623F28B8955D00D7D979 /* ViewModel */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		BDBE624628B895A400D7D979 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE624728B895BC00D7D979 /* TitleView */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		BDBE624728B895BC00D7D979 /* TitleView */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE624828B895C800D7D979 /* TitleView.swift */,
+			);
+			path = TitleView;
+			sourceTree = "<group>";
+		};
+		BDBE624C28B897BD00D7D979 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE624D28B897E300D7D979 /* StringConstants.swift */,
+				BDBE625028B8982700D7D979 /* UIConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		BDBE625628B8A54100D7D979 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BD5DA0A528D1E1C200D3EE32 /* ChatSocket */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		BDBE625828B8A56000D7D979 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDBE625B28B8AB4500D7D979 /* CustomFonts */ = {
+			isa = PBXGroup;
+			children = (
+				BDBE626328B8AE4A00D7D979 /* Montserrat-Regular.ttf */,
+				BDBE626128B8AE3F00D7D979 /* Montserrat-Light.ttf */,
+				BDBE625F28B8AE3100D7D979 /* Montserrat-Bold.ttf */,
+				BDBE625C28B8AB6C00D7D979 /* BlackberryJam.ttf */,
+			);
+			path = CustomFonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BDBE622B28B890F600D7D979 /* ChatSocketExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BDBE623A28B890F700D7D979 /* Build configuration list for PBXNativeTarget "ChatSocketExample" */;
+			buildPhases = (
+				BDBE622828B890F600D7D979 /* Sources */,
+				BDBE622928B890F600D7D979 /* Frameworks */,
+				BDBE622A28B890F600D7D979 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ChatSocketExample;
+			packageProductDependencies = (
+			);
+			productName = ChatSocketExample;
+			productReference = BDBE622C28B890F600D7D979 /* ChatSocketExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BDBE622428B890F600D7D979 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					BDBE622B28B890F600D7D979 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = BDBE622728B890F600D7D979 /* Build configuration list for PBXProject "ChatSocketExample" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BDBE622328B890F600D7D979;
+			productRefGroup = BDBE622D28B890F600D7D979 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BDBE622B28B890F600D7D979 /* ChatSocketExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BDBE622A28B890F600D7D979 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDBE626428B8AE4A00D7D979 /* Montserrat-Regular.ttf in Resources */,
+				BDBE626228B8AE3F00D7D979 /* Montserrat-Light.ttf in Resources */,
+				BDBE626028B8AE3100D7D979 /* Montserrat-Bold.ttf in Resources */,
+				BDBE623728B890F700D7D979 /* Preview Assets.xcassets in Resources */,
+				BDBE625D28B8AB6C00D7D979 /* BlackberryJam.ttf in Resources */,
+				BDBE623428B890F700D7D979 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BDBE622828B890F600D7D979 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BDBE624B28B8964900D7D979 /* PreviewConstants.swift in Sources */,
+				BDBE623228B890F600D7D979 /* ChatListView.swift in Sources */,
+				BDBE625528B8A1D800D7D979 /* ChatListVM.swift in Sources */,
+				BDBE623028B890F600D7D979 /* ChatSocketExampleApp.swift in Sources */,
+				BDBE624E28B897E300D7D979 /* StringConstants.swift in Sources */,
+				BDBE624928B895C800D7D979 /* TitleView.swift in Sources */,
+				BDBE625328B8A0F800D7D979 /* UserList.swift in Sources */,
+				BDBE625128B8982800D7D979 /* UIConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BDBE623828B890F700D7D979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BDBE623928B890F700D7D979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BDBE623B28B890F700D7D979 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ChatSocketExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 8SZ27954MH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatSocketExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quokkalabs.ChatSocketExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BDBE623C28B890F700D7D979 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ChatSocketExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 8SZ27954MH;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ChatSocketExample/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quokkalabs.ChatSocketExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BDBE622728B890F600D7D979 /* Build configuration list for PBXProject "ChatSocketExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDBE623828B890F700D7D979 /* Debug */,
+				BDBE623928B890F700D7D979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BDBE623A28B890F700D7D979 /* Build configuration list for PBXNativeTarget "ChatSocketExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BDBE623B28B890F700D7D979 /* Debug */,
+				BDBE623C28B890F700D7D979 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BDBE622428B890F600D7D979 /* Project object */;
+}

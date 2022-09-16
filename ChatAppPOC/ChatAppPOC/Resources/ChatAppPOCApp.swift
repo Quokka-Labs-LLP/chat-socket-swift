@@ -11,8 +11,9 @@ import SwiftUI
 struct ChatAppPOCApp: App {
     var body: some Scene {
         WindowGroup {
-//            InboxView()
-            OnboardingView()
+            ListingView()
         }
     }
+
+    // Can we call firebase methods here?
 }
