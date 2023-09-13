@@ -17,7 +17,7 @@ pipeline {
         COLOUR_FAILURE = "#FFB316" //Spanish Yellow
         
         WDIR = "/jenkins-pipelines/${JOB_NAME}"
-        BRANCHH = "develop"
+        BRANCHH = "development"
         TARGET_BRANCHH = "${CHANGE_TARGET}"
 
         REPO_OWNER = "automation-quokkalabs"
@@ -184,8 +184,8 @@ def targetbrachconfirm() {
 
     // Check if the pull request is coming from 'source-branch' to 'target-branch'
     //return sourceBranch == 'source-branch' && targetBranch == 'target-branch'
-    if (targetBranch == "develop") {   
-        return targetBranch == "develop"
+    if (targetBranch == "development") {   
+        return targetBranch == "development"
     }
 
     else if (targetBranch == "stage") {
